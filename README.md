@@ -50,6 +50,7 @@ npm run start:dev
 
 ## 📬 Cara Mengirim Email
 Aplikasi ini menyediakan endpoint sederhana untuk mengirim email.
+Postman Collection: [NestJS Email Simple](https://www.postman.com/rochiyat-coding/workspace/share-api/collection/4389128-caec4da0-fe45-4801-b10c-92eae7a1920a?action=share&creator=4389128)
 
 ### Contoh Request (via Postman atau cURL)
 - **Endpoint**: `POST /mail/send`
