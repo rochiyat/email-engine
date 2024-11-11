@@ -5,10 +5,14 @@ import { MailerModule as MailModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as path from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Email } from './email.entity';
+import { MailerRepository } from './mailer.repository';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    TypeOrmModule.forFeature([Email]),
     MailModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -36,7 +40,7 @@ import * as path from 'path';
     }),
   ],
   controllers: [MailerController],
-  providers: [MailerService],
-  exports: [MailerService],
+  providers: [MailerService, MailerRepository],
+  exports: [MailerService, MailerRepository],
 })
 export class MailerModule {}
